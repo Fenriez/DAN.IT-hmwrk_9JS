@@ -4,20 +4,20 @@ let getBirthDate = prompt('Enter your birth date in format: dd.mm.year', ''),
     current_date = new Date,
     age = current_date.getYear() - birth_date.getYear(); 
 
-// const ZODIAC_SIGN = {
-//     'Aries': [21, 3],
-//     'Taurus': [21, 4],
-//     'Gemini': [22, 5],
-//     'Cancer': [22, 6],
-//     'Leo': [23, 7],
-//     'Virgo': [22, 8],
-//     'Libra': [24, 9],
-//     'Scorpio': [24, 10],
-//     'Sagittarius': [23, 11],
-//     'Capricorn': [23, 12],
-//     'Aquarius': [21, 1],
-//     'Pisces': [20, 2]
-// }
+const CHINA_YEAR = {
+    4: 'Rat',
+    5: 'Ox',
+    6: 'Tiger',
+    7: 'Rabbit',
+    8: 'Dragon',
+    9: 'Snake',
+    10: 'Horse',
+    11: 'Goat',
+    12: 'Monkey',
+    1: 'Rooster',
+    2: 'Dog',
+    3: 'Pig'
+}
 
 const ZODIAC_SIGN = {
     3: [21, 'Aries'],
@@ -47,5 +47,10 @@ let getZodiacSign = (month, day) => {
     }
 }
 
+let getChinaYear = (year) => {
+    return CHINA_YEAR[year % 12];
+}
+
 console.log(`You are ${parseInt(age)} years old`);
 console.log(`Your zodiac sign is ${getZodiacSign(birth_date.getMonth(), birth_date.getDate())}`);
+console.log(`You were born in the year of ${getChinaYear(birth_date.getFullYear())}`)
